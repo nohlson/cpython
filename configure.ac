@@ -913,8 +913,8 @@ AS_CASE([$ac_sys_system],
 AS_VAR_APPEND([CFLAGS], ["-O2 -Wall -Wformat=2 -Wconversion -Wimplicit-fallthrough \
 -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -D_GLIBCXX_ASSERTIONS \
 -fstack-clash-protection -fstack-protector-strong -fcf-protection=full -Wtrampolines \
--fno-delete-null-pointer-checks -fno-strict-overflow -fstrict-flex-arrays=1 \
--fno-strict-aliasing -Wbidi-chars=any -fdiagnostics-format=json"])
+-fno-delete-null-pointer-checks -fno-strict-overflow \
+-fno-strict-aliasing -fdiagnostics-format=json"])
 AS_VAR_APPEND([LDFLAGS], ["-Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now"])
 
 if test "$ac_sys_system" = "Darwin"

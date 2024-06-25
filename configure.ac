@@ -2451,6 +2451,10 @@ AS_VAR_IF([with_strict_overflow], [yes],
           [BASECFLAGS="$BASECFLAGS $STRICT_OVERFLOW_CFLAGS"],
           [BASECFLAGS="$BASECFLAGS $NO_STRICT_OVERFLOW_CFLAGS"])
 
+# Enable flags that warn and protect for potential security vulnerabilities.
+# These flags should be enabled by default for all builds.
+AX_CHECK_COMPILE_FLAG([-fno-strict-aliasing], [BASECFLAGS="$BASECFLAGS -fno-strict-aliasing"], [AC_MSG_WARN([-fno-strict-aliasing not supported])])
+
 case $GCC in
 yes)
     CFLAGS_NODIST="$CFLAGS_NODIST -std=c11"

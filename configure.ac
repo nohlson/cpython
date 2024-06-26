@@ -2451,6 +2451,10 @@ AS_VAR_IF([with_strict_overflow], [yes],
           [BASECFLAGS="$BASECFLAGS $STRICT_OVERFLOW_CFLAGS"],
           [BASECFLAGS="$BASECFLAGS $NO_STRICT_OVERFLOW_CFLAGS"])
 
+# Enable flags that warn and protect for potential security vulnerabilities.
+# These flags should be enabled by default for all builds.
+AX_CHECK_COMPILE_FLAG([-D_FORTIFY_SOURCE=3], [BASECFLAGS="$BASECFLAGS -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3"], [AC_MSG_WARN([-D_FORTIFY_SOURCE=3 not supported])])
+
 case $GCC in
 yes)
     CFLAGS_NODIST="$CFLAGS_NODIST -std=c11"
